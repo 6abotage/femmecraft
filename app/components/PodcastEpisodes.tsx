@@ -1,9 +1,9 @@
 'use client'
-
 import { useState, useEffect } from 'react'
+import { SimplifiedEpisode } from '@spotify/web-api-ts-sdk'
 
 export default function PodcastEpisodes({ podcastId }: { podcastId: string }) {
-  const [episodes, setEpisodes] = useState([])
+  const [episodes, setEpisodes] = useState<SimplifiedEpisode[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -31,10 +31,13 @@ export default function PodcastEpisodes({ podcastId }: { podcastId: string }) {
 
   return (
     <ul className="space-y-4">
-      {episodes.map((episode: any) => (
+      {episodes.map((episode) => (
         <li key={episode.id} className="border p-4 rounded-md">
           <h3 className="font-bold">{episode.name}</h3>
           <p className="text-sm text-gray-600">{episode.description}</p>
+          <p className="text-xs text-gray-500 mt-2">
+            Duration: {Math.floor(episode.duration_ms / 60000)} minutes
+          </p>
         </li>
       ))}
     </ul>
