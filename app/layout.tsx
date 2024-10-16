@@ -6,8 +6,8 @@ import Footer from './components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'FEMME CRAFT Podcast',
-  description: 'Empowering women in tech and craftsmanship',
+  title: 'FEMMECRAFT Podcast',
+  description: 'Empowering BIPOC women',
 }
 
 export default function RootLayout({
