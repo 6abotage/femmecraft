@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-export function InteractiveInvertedCurvedLine() {
+export function InteractiveInvertedCurvedLine({
+  className,
+}: {
+  className?: string;
+}) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [inverted, setInverted] = useState(false);
@@ -89,6 +93,7 @@ export function InteractiveInvertedCurvedLine() {
     <svg
       width="100%"
       height="100%"
+      className={className}
       style={{
         position: "fixed",
         top: 0,

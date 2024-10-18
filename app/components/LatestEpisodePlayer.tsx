@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface OEmbedData {
   html: string;
@@ -17,6 +17,7 @@ export default function LatestEpisodePlayer({
   const [oembedData, setOembedData] = useState<OEmbedData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const fetchLatestEpisode = async () => {
@@ -54,6 +55,24 @@ export default function LatestEpisodePlayer({
     fetchLatestEpisode();
   }, [podcastId]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (iframeRef.current) {
+        const parentWidth = iframeRef.current.parentElement?.clientWidth || 0;
+        const aspectRatio = 351 / 624; // Original height / width
+        const newHeight = Math.floor(parentWidth * aspectRatio);
+
+        iframeRef.current.style.width = `${parentWidth}px`;
+        iframeRef.current.style.height = `${newHeight}px`;
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call once to set initial size
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [oembedData]);
+
   if (loading)
     return (
       <div className="text-center text-2xl font-bold">
@@ -69,9 +88,20 @@ export default function LatestEpisodePlayer({
   if (!oembedData) return null;
 
   return (
-    <div className="w-full max-w-2xl mx-auto mb-8">
+    <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0 ">
       <h2 className="text-2xl font-bold mb-4">Latest Episode</h2>
-      <div dangerouslySetInnerHTML={{ __html: oembedData.html }} />
+      <div className="relative w-full " style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          ref={iframeRef}
+          className="absolute top-0 left-0 w-full h-full rounded-md"
+          title={oembedData.title}
+          frameBorder="0"
+          allowFullScreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          src={oembedData.html.match(/src="([^"]*)/)?.[1]}
+        />
+      </div>
     </div>
   );
 }

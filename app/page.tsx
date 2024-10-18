@@ -206,8 +206,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <InteractiveInvertedCurvedLine />
+      <InteractiveInvertedCurvedLine className="hidden md:block" />
     </div>
   );
 }
