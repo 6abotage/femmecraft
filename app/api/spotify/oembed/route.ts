@@ -22,6 +22,7 @@ export async function GET(request: Request) {
       throw new Error("Failed to fetch oEmbed data");
     }
     const data = await response.json();
+    console.info("Fetched oEmbed data:", data);
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error fetching oEmbed data:", error);
