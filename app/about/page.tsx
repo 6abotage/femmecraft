@@ -7,7 +7,7 @@ export default function AboutPage() {
         <h1 className="text-5xl font-bold text-center mb-8">
           About FEMMECRAFT
         </h1>
-        <p className="text-xl text-center mb-16 max-w-3xl mx-auto">
+        <p className="text-xl text-center mb-4 max-w-3xl mx-auto">
           FEMMECRAFT is more than just a podcast; it's a journey of growth,
           empowerment, and community building. From our humble beginnings in a
           small café to hosting large-scale events and expanding into video

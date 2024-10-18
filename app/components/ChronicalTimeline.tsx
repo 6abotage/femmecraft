@@ -69,7 +69,10 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
-      <motion.div className="md:w-1/2 mb-8 md:mb-0" style={{ y, opacity }}>
+      <motion.div
+        className="md:w-1/2 mb-8 md:mb-0 relative z-10"
+        style={{ y, opacity }}
+      >
         <Image
           src={event.image}
           alt={event.title}
@@ -78,7 +81,7 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => {
           className="rounded-lg shadow-lg"
         />
       </motion.div>
-      <div className="md:w-1/2 md:px-8">
+      <div className="md:w-1/2 md:px-8 relative z-10">
         <motion.h3
           className="text-3xl font-bold mb-2"
           initial={{ opacity: 0, x: -50 }}
@@ -123,7 +126,7 @@ export default function ChronologicalTimeline() {
       <div className="relative">
         <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-200 z-0"></div>
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-neonGreen z-10"
+          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-neonGreen z-0"
           style={{
             scaleY,
             originY: 0,
