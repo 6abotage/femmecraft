@@ -1,7 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import LatestEpisodePlayer from "./components/LatestEpisodePlayer";
+import { InteractiveInvertedCurvedLine } from "./components/InteractiveCurvedLine";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import TeamPicture from "./team.jpg";
+import SherryHero from "./sherry-bg.jpg";
+import EventOne from "./events.jpg";
+import EventTwo from "./events2.jpg";
+import Autoplay from "embla-carousel-autoplay";
 
 const teamMembers = [
   {
@@ -15,154 +29,184 @@ const teamMembers = [
   },
 ];
 
-export function InteractiveInvertedCurvedLine() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [inverted, setInverted] = useState(false);
-
-  useEffect(() => {
-    const updateDimensions = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      const newMousePos = {
-        x: event.clientX,
-        y: event.clientY,
-      };
-      setMousePos(newMousePos);
-
-      // Check if mouse has crossed the diagonal
-      const crossedDiagonal =
-        newMousePos.y > (dimensions.height / dimensions.width) * newMousePos.x;
-      setInverted(crossedDiagonal);
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [dimensions.height, dimensions.width]);
-
-  const createPath = () => {
-    const { width, height } = dimensions;
-
-    // Define start and end points based on inversion state
-    const start = inverted
-      ? { x: width * 0.05, y: height * 0.0 } // Top-left when inverted
-      : { x: width * 0, y: height * 0.05 }; // Bottom-left when normal
-    const end = inverted
-      ? { x: width * 1.0, y: height * 0.8 } // Bottom-right when inverted
-      : { x: width * 0.9, y: height * 1.0 }; // Top-right when normal
-
-    // Mirror point function
-    const mirrorPoint = (point: { x: number; y: number }) => {
-      const t = (point.x / width + point.y / height) / 2;
-      return {
-        x: (1 - t) * width,
-        y: (1 - t) * height,
-      };
-    };
-
-    // Calculate mouse influence
-    const mouseInfluence = {
-      x: mousePos.x / width,
-      y: mousePos.y / height - 0.4,
-    };
-
-    // Calculate control points
-    let control1, control2;
-
-    if (inverted) {
-      control1 = {
-        x: width * (1 + mouseInfluence.x * -1.2) * 0.2,
-        y: height * (1 - mouseInfluence.y * -1.2) * 0.7,
-      };
-      control2 = {
-        x: width * (1 - mouseInfluence.x * -0.8) * 0.2,
-        y: height * (1 - mouseInfluence.y * -0.8) * 0.8,
-      };
-    } else {
-      control1 = {
-        x: width * (mouseInfluence.x * 0.8) + width * 0.2,
-        y: height * (mouseInfluence.y * 0.8),
-      };
-      control2 = {
-        x: width * (mouseInfluence.x * 0.2 + 0.8),
-        y: height * (mouseInfluence.y * 0.2 + 0.8),
-      };
-    }
-
-    // Construct the path
-    return `
-      M ${start.x},${start.y}
-      C ${control1.x},${control1.y} ${control2.x},${control2.y} ${end.x},${end.y}
-    `;
-  };
-
-  return (
-    <svg
-      width="100%"
-      height="100%"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        pointerEvents: "none",
-      }}
-    >
-      <path
-        d={createPath()}
-        fill="none"
-        stroke="#39FF14" // Blue color to match the image
-        strokeWidth="2" // Thin stroke
-        strokeLinecap="round" // Round line endings
-        strokeLinejoin="round" // Round line joins
-      />
-    </svg>
-  );
-}
-
 export default function Home() {
   const podcastId = "2MnJGjpO8t40i9lJFBqPkM";
+
   return (
     <div className="min-h-screen flex flex-col">
-      <section className="relative h-1/2-screen flex items-center justify-center  text-white p-4">
-        <div className="w-1/2 md:w-1/4 aspect-square relative overflow-hidden">
-          <div
-            className={`absolute inset-0 bg-cover bg-center ${teamMembers[0].animation}`}
-            style={{ backgroundImage: `url(${teamMembers[0].image})` }}
-          ></div>
-        </div>
-        <div className="relative z-10 text-center max-w-3xl mx-auto text-black">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+      <section className="relative flex flex-col md:flex-row items-center justify-between p-4 md:p-8 lg:p-12 max-w-screen-2xl mx-auto">
+        <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">
             Welcome to FEMMECRAFT
           </h1>
-          <p className="text-xl md:text-2xl mb-8">
+          <p className="text-lg md:text-xl lg:text-2xl mb-4">
             Exploring the intersection of technology and craftsmanship
           </p>
-          <p className="text-lg md:text-xl mb-8">
+          <p className="text-base md:text-lg mb-6">
             Join Emma Johnson as she bridges the gap between innovation and
             artistry, inspiring listeners to explore the exciting world where
             tech meets craft.
           </p>
-          <button className="bg-neonGreen text-gray-900 px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-400 transition-colors duration-300">
+          <Button className="bg-neonGreen text-gray-900 hover:bg-green-400">
             Listen Now
-          </button>
+          </Button>
+        </div>
+
+        <div className="w-3/4 md:w-1/3 aspect-square relative overflow-hidden rounded-full">
+          <Image
+            src={SherryHero}
+            alt="Sherry Hero"
+            layout="fill"
+            objectFit="cover"
+            className={teamMembers[0].animation}
+          />
         </div>
       </section>
 
-      {/* Podcast Content */}
       <div className="container mx-auto px-4 py-8">
         <LatestEpisodePlayer podcastId={podcastId} />
       </div>
+
+      <section className="bg-gray-100 py-12 ">
+        <div className="container mx-auto gap-8 max-w-screen-2xl px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Events & Brands
+          </h2>
+          <div className="flex flex-col md:flex-row items-start justify-between">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}
+              className="w-full md:w-1/2 mb-8 md:mb-0"
+            >
+              <CarouselContent>
+                <CarouselItem>
+                  <Image
+                    src={EventOne}
+                    alt="Event One"
+                    width={600}
+                    height={400}
+                    className="rounded-lg"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <Image
+                    src={EventTwo}
+                    alt="Event Two"
+                    width={600}
+                    height={400}
+                    className="rounded-lg"
+                  />
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
+            <div className="w-full md:w-1/2 md:pl-8">
+              <p className="text-lg mb-6">
+                FEMMECRAFT is dedicated to creating events that connect BIPOC
+                women in tech and crafts. We've partnered with innovative brands
+                to bring you unique experiences that celebrate creativity and
+                diversity. Our events provide a platform for networking,
+                learning, and showcasing the incredible talents within our
+                community.
+              </p>
+              <Link href="/events" passHref>
+                <Button variant="outline">
+                  Learn More About Our Events & Brand Partnerships
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <InfiniteSlider
+          gap={16}
+          duration={30}
+          durationOnHover={100}
+          className="py-12"
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Tech Brand 1"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+          <Image
+            src="https://images.unsplash.com/photo-1496200186974-4293800e2c20?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Tech Brand 2"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+          <Image
+            src="https://images.unsplash.com/photo-1606293459339-aa5d34a7b0e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Craft Brand 2"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+          <Image
+            src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Tech Brand 3"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+          <Image
+            src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Tech Brand 1"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+          <Image
+            src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Craft Brand 3"
+            width={120}
+            height={120}
+            className="h-[120px] w-auto object-contain"
+          />
+        </InfiniteSlider>
+      </section>
+
+      <section className="py-12 px-4 md:px-8 pb-24">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Our Team
+          </h2>
+          <div className="flex flex-col md:flex-row-reverse items-center justify-between">
+            <div className="md:w-1/2 mb-6 md:mb-0 md:pl-8">
+              <Image
+                src={TeamPicture}
+                alt="FEMMECRAFT Team"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="md:w-1/2">
+              <p className="text-lg mb-6">
+                FEMMECRAFT was founded by Sarah Chen and Emma Johnson to address
+                the underrepresentation of BIPOC women in tech and traditional
+                crafts. Their vision was to create a platform that celebrates
+                diversity, fosters innovation, and builds a supportive
+                community. Today, FEMMECRAFT has grown into a vibrant network of
+                creators, innovators, and change-makers, all working together to
+                push the boundaries of technology and craftsmanship.
+              </p>
+              <Link href="/team" passHref>
+                <Button variant="outline">Meet Our Incredible Team</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <InteractiveInvertedCurvedLine />
     </div>
   );

@@ -20,7 +20,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow">{children}</main>
+          
+          {/* Main section with arc background */}
+          <main
+            className="flex-grow"
+          
+          >
+            {children}
+          </main>
+
           <Footer />
         </div>
       </body>

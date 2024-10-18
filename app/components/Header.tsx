@@ -50,10 +50,10 @@ export default function Header() {
               Events
             </Link>
             <Link
-              href="/teams"
+              href="/team"
               className="hover:text-neonGreen transition-colors"
             >
-              Teams
+              Team
             </Link>
           </nav>
 
