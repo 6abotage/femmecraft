@@ -109,9 +109,9 @@ export default function Home() {
             <div className="w-full md:w-1/2 md:pl-8">
               <p className="text-lg mb-6">
                 FEMMECRAFT is dedicated to creating events that connect BIPOC
-                women in tech and crafts. We've partnered with innovative brands
-                to bring you unique experiences that celebrate creativity and
-                diversity. Our events provide a platform for networking,
+                women in tech and crafts. We&apos;ve partnered with innovative
+                brands to bring you unique experiences that celebrate creativity
+                and diversity. Our events provide a platform for networking,
                 learning, and showcasing the incredible talents within our
                 community.
               </p>

@@ -1,7 +1,6 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
-
 
 export function InteractiveInvertedCurvedLine() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -49,15 +48,6 @@ export function InteractiveInvertedCurvedLine() {
     const end = inverted
       ? { x: width * 1.0, y: height * 0.8 } // Bottom-right when inverted
       : { x: width * 0.9, y: height * 1.0 }; // Top-right when normal
-
-    // Mirror point function
-    const mirrorPoint = (point: { x: number; y: number }) => {
-      const t = (point.x / width + point.y / height) / 2;
-      return {
-        x: (1 - t) * width,
-        y: (1 - t) * height,
-      };
-    };
 
     // Calculate mouse influence
     const mouseInfluence = {
@@ -109,10 +99,10 @@ export function InteractiveInvertedCurvedLine() {
       <path
         d={createPath()}
         fill="none"
-        stroke="#39FF14" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
+        stroke="#39FF14"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
