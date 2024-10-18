@@ -8,10 +8,11 @@ export default function AboutPage() {
           About FEMMECRAFT
         </h1>
         <p className="text-xl text-center mb-4 max-w-3xl mx-auto">
-          FEMMECRAFT is more than just a podcast; it's a journey of growth,
+          FEMMECRAFT is more than just a podcast; it&apos;s a journey of growth,
           empowerment, and community building. From our humble beginnings in a
           small café to hosting large-scale events and expanding into video
-          content, we've been on an incredible adventure. Here's our story:
+          content, we&apos;ve been on an incredible adventure. Here&apos;s our
+          story:
         </p>
       </div>
       <ChronologicalTimeline />
