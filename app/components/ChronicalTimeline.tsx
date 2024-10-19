@@ -3,10 +3,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import Event1 from "../events.jpg";
-import Event2 from "../events2.jpg";
-import SherryBg from "../sherry-bg.jpg";
-import Team from "../team.jpg";
+import Event1 from "@/assets/pictures/events.webp";
+import Event2 from "@/assets/pictures/events2.webp";
+import SherryBg from "@/assets/pictures/sherry-bg.webp";
+import Team from "@/assets/pictures/team.webp";
 
 const timelineEvents = [
   {
