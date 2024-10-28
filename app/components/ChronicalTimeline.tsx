@@ -73,10 +73,10 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => {
       className={`flex flex-col md:flex-row items-start justify-between mb-24 ${
         index % 2 === 0 ? "md:flex-row-reverse" : ""
       }`}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div
         className={`md:w-1/2 mb-8 md:mb-0 relative z-10 ${imageMarginClass}`}
