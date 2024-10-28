@@ -5,7 +5,6 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Event1 from "@/assets/pictures/events.webp";
 import Event2 from "@/assets/pictures/events2.webp";
-import SherryBg from "@/assets/pictures/sherry-bg.webp";
 import Team from "@/assets/pictures/team.webp";
 import BlackWhite from "@/assets/pictures/season4blackwhite.webp";
 
