@@ -28,8 +28,8 @@ export default function Header() {
     <header className="bg-black text-white sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 sm:py-6">
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex flex-col items-start text-left">
-            <span className="text-2xl sm:text-3xl font-bold leading-none text-neonGreen">
+          <Link href="/" className="flex flex-col items-start text-left z-50">
+            <span className="text-2xl sm:text-3xl font-bold leading-none text-neonGreen ">
               FEMME
             </span>
             <span className="text-2xl sm:text-3xl font-bold leading-none text-neonGreen">
