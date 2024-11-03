@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import SherryHero from "@/assets/pictures/sherry-bg.webp";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -17,9 +18,11 @@ export default function HeroSection() {
           artistry, inspiring listeners to explore the exciting world where tech
           meets craft.
         </p>
-        <Button className="bg-neonGreen text-gray-900 hover:bg-green-400">
-          Listen Now
-        </Button>
+        <Link href="/about" passHref>
+          <Button className="bg-neonGreen text-gray-900 hover:bg-green-400">
+            Learn More
+          </Button>
+        </Link>
       </div>
 
       <div className="w-3/4 md:w-1/3 aspect-square relative overflow-hidden">
