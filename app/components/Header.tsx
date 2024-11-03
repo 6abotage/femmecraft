@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { AnimatedGroup } from "@/components/ui/animatedGroup";
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -73,45 +74,51 @@ export default function Header() {
 
       {/* Mobile Fullscreen Menu */}
       <div
-        className={`fixed inset-0 bg-gray-900 bg-opacity-90 text-white transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-black  text-white transform transition-transform duration-300 ease-in-out z-40 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden z-40 flex flex-col items-center justify-center space-y-8`}
+        } md:hidden `}
       >
-        <Link
-          href="/about"
-          className="text-2xl uppercase hover:text-neonGreen transition-colors"
-          onClick={toggleMobileMenu}
+        <AnimatedGroup
+          className="flex flex-col items-center justify-center space-y-12 fixed w-full h-full"
+          preset="flip"
+          key={`mobile-menu=${isMobileMenuOpen}`}
         >
-          About
-        </Link>
-        <Link
-          href="/player"
-          className="text-2xl uppercase hover:text-neonGreen transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          Player
-        </Link>
-        <Link
-          href="/guests"
-          className="text-2xl uppercase hover:text-neonGreen transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          Guests
-        </Link>
-        <Link
-          href="/events"
-          className="text-2xl uppercase hover:text-neonGreen transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          Events
-        </Link>
-        <Link
-          href="/teams"
-          className="text-2xl uppercase hover:text-neonGreen transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          Teams
-        </Link>
+          <Link
+            href="/about"
+            className="text-2xl uppercase hover:text-neonGreen transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            About
+          </Link>
+          <Link
+            href="/player"
+            className="text-2xl uppercase hover:text-neonGreen transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            Player
+          </Link>
+          <Link
+            href="/guests"
+            className="text-2xl uppercase hover:text-neonGreen transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            Guests
+          </Link>
+          <Link
+            href="/events"
+            className="text-2xl uppercase hover:text-neonGreen transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            Events
+          </Link>
+          <Link
+            href="/teams"
+            className="text-2xl uppercase hover:text-neonGreen transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            Teams
+          </Link>
+        </AnimatedGroup>
       </div>
     </header>
   );
