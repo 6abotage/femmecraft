@@ -1,19 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import TeamPicture from "@/assets/pictures/team.webp";
+import team from "./team.webp";
+import team2 from "./team2.webp";
+
+const TITLE = "Our Team";
+const DESCRIPTION =
+  "FEMME CRAFT ist ein inspirierender Podcast und eine Networking-Plattform, die von Sehriban Cirik gegründet wurde und darauf abzielt, Frauen und Menschen of Color zusammenzubringen.";
+
+const DESCRIPTION_TWO =
+  "Neben dem Podcast bietet FEMME CRAFT regelmäßig Live - Events, bei denen spannende Persönlichkeiten aus verschiedenen Bereichen Einblicke teilen und in Workshops ihr Wissen weitergeben.";
+
+const DESCRIPTION_THREE =
+  "Elif Baran, die als Brandmanagerin eine Schlüsselrolle spielt, gestaltet gemeinsam mit Social Media Managerin Eilar, Marketing Manager Malick und IT - Experten Dino die Events und die Plattform aktiv mit.FEMME CRAFT schafft Raum für authentische Begegnungen, neuen Austausch und das Wachstum kreativer Energien – beruflich wie privat.";
 
 export default function TeamSection() {
   return (
     <section className="py-12 px-4 md:px-8 pb-24 bg-gray-100">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-          Our Team
+          {TITLE}
         </h2>
         <div className="flex flex-col md:flex-row-reverse items-center justify-between">
           <div className="md:w-1/2 mb-6 md:mb-0 md:pl-8">
             <Image
-              src={TeamPicture}
+              src={team2}
               alt="FEMMECRAFT Team"
               width={600}
               height={400}
@@ -21,17 +32,11 @@ export default function TeamSection() {
             />
           </div>
           <div className="md:w-1/2">
-            <p className="text-lg mb-6">
-              FEMMECRAFT was founded by Sarah Chen and Emma Johnson to address
-              the underrepresentation of BIPOC women in tech and traditional
-              crafts. Their vision was to create a platform that celebrates
-              diversity, fosters innovation, and builds a supportive community.
-              Today, FEMMECRAFT has grown into a vibrant network of creators,
-              innovators, and change-makers, all working together to push the
-              boundaries of technology and craftsmanship.
-            </p>
+            <p className="text-lg mb-6">{DESCRIPTION}</p>
+            <p className="text-lg mb-6">{DESCRIPTION_TWO}</p>
+            <p className="text-lg mb-6">{DESCRIPTION_THREE}</p>
             <Link href="/team" passHref>
-              <Button variant="outline">Meet Our Incredible Team</Button>
+              <Button variant="outline">Lern uns kennen</Button>
             </Link>
           </div>
         </div>

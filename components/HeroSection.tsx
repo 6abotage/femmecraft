@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import SherryHero from "@/assets/pictures/sherry-bg.webp";
 import Link from "next/link";
 
+const HEADLINE = "Dein Raum zum Netzwerken, Lernen und Teilen!";
+const DESCRIPTION =
+  "FEMME CRAFT ist der Ort, an dem BiWoC mit ihren inspirierenden Lebensgeschichten gehört und gesehen wird.";
+
+const DESCRIPTION_TWO =
+  "Neben dem Podcast bietet FEMME CRAFT auf wiederkehrenden Network - Events Live - Talks und Workshops für Teilnehmer an, die voneinander lernen und über gesellschaftsrelevante Hürden sprechen möchten.";
+
 export default function HeroSection() {
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-between p-4 md:p-8 lg:p-12 max-w-screen-2xl mx-auto">
@@ -10,17 +17,12 @@ export default function HeroSection() {
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">
           Welcome to FEMMECRAFT
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-          Exploring the intersection of technology and craftsmanship
-        </p>
-        <p className="text-base md:text-lg mb-6">
-          Join Emma Johnson as she bridges the gap between innovation and
-          artistry, inspiring listeners to explore the exciting world where tech
-          meets craft.
-        </p>
+        <p className="text-lg md:text-xl lg:text-2xl mb-4">{HEADLINE}</p>
+        <p className="text-base md:text-lg mb-6">{DESCRIPTION}</p>
+        <p className="text-base md:text-lg mb-6">{DESCRIPTION_TWO}</p>
         <Link href="/about" passHref>
           <Button className="bg-neonGreen text-gray-900 hover:bg-green-400">
-            Learn More
+            Lern mehr über die Geschichte von FEMMECRAFT
           </Button>
         </Link>
       </div>
