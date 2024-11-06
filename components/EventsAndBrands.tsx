@@ -12,6 +12,20 @@ import EventTwo from "@/assets/pictures/events2.webp";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 
+import BloomAndWild from "@/assets/brands/Bloom & Wild png.png";
+import Halara from "@/assets/brands/Halara png.png";
+import Lillet from "@/assets/brands/Lillet png.webp";
+import Pepsi from "@/assets/brands/Pepsi png.png";
+import Barebells from "@/assets/brands/barebells png logo.png";
+import Guess from "@/assets/brands/guess.png";
+import JohnReed from "@/assets/brands/john reed png.png";
+import Lululemon from "@/assets/brands/lululemon png.png";
+import MilanoVice from "@/assets/brands/milano vice logopng.png";
+import Mindspace from "@/assets/brands/mindspace logo png.png";
+import Nevernot from "@/assets/brands/nevernot logo png.webp";
+import Shure from "@/assets/brands/shure png.png";
+import VitaminWell from "@/assets/brands/vitamin well png.webp";
+
 export default function EventsAndBrandsSection() {
   return (
     <section className="py-12">
@@ -78,120 +92,92 @@ export default function EventsAndBrandsSection() {
         reverse
       >
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={BloomAndWild}
+          alt="Bloom And Wild"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1496200186974-4293800e2c20?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 2"
+          src={Halara}
+          alt="Halara"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1606293459339-aa5d34a7b0e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 2"
+          src={Lillet}
+          alt="Lillet"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 3"
+          src={Pepsi}
+          alt="Pepsi"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={Barebells}
+          alt="Barebells"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={Guess}
+          alt="Guess"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={JohnReed}
+          alt="John Reed"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={Lululemon}
+          alt="Lululemon"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Tech Brand 1"
+          src={MilanoVice}
+          alt="Milano Vice"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
+          src={Mindspace}
+          alt="Mindspace"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
+          src={Nevernot}
+          alt="Nevernot"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
+          src={Shure}
+          alt="Shure"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
         />
         <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
-          width={120}
-          height={120}
-          className="h-[120px] w-auto object-contain"
-        />
-        <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
-          width={120}
-          height={120}
-          className="h-[120px] w-auto object-contain"
-        />
-        <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
-          width={120}
-          height={120}
-          className="h-[120px] w-auto object-contain"
-        />
-        <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
-          width={120}
-          height={120}
-          className="h-[120px] w-auto object-contain"
-        />
-        <Image
-          src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-          alt="Craft Brand 3"
+          src={VitaminWell}
+          alt="Vitamin Well"
           width={120}
           height={120}
           className="h-[120px] w-auto object-contain"
