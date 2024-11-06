@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import SherryHero from "@/assets/pictures/sherry-bg.webp";
 
 const teamMembers = [
   {
     name: "Sehriban Cirik",
     role: "Host & Founder",
-    image: SherryHero,
+    image: "/avatars/sherry.webp",
     description:
       "Emma is the creative force behind FEMME CRAFT, bringing her passion for technology and craftsmanship to every episode. With her background in both tech and traditional crafts, she bridges the gap between these worlds, inspiring listeners to explore the intersection of innovation and artistry.",
     animation: "animate-morphLight",
@@ -15,8 +14,7 @@ const teamMembers = [
   {
     name: "Elif Baran",
     role: "Brand Managerin",
-    image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image: "/avatars/elif.webp",
     description:
       "Sophia's deep knowledge of the tech industry adds invaluable insights to our discussions on innovation and entrepreneurship. Her experience in software development and AI research brings cutting-edge perspectives to each episode, helping our audience stay ahead of the curve in the rapidly evolving tech landscape.",
     animation: "animate-morphVideo",
@@ -65,7 +63,7 @@ export default function Team() {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Meet Our Team
+          Unser Team
         </h1>
         <div className="space-y-12 md:space-y-24">
           {teamMembers.map((member, index) => (
