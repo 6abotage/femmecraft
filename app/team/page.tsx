@@ -76,7 +76,7 @@ export default function Team() {
         </div>
 
         {/* Second Row with Last 2 Members */}
-        <div className="flex flex-col md:flex-row justify-evenly  gap-8 flex-wrap lg:flex-nowrap">
+        <div className="flex flex-col md:flex-row justify-evenly  gap-8 flex-wrap lg:flex-nowrap mb-10 ">
           {teamMembers.slice(-2).map((member, index) => (
             <div key={index} className="flex flex-col items-center  gap-4">
               <div className="w-64 h-64 relative overflow-hidden">
