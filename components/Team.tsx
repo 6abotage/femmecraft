@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import team from "./team.webp";
 import team2 from "./team2.webp";
 
 const TITLE = "Our Team";
