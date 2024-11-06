@@ -10,14 +10,12 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import EventOne from "@/assets/pictures/events.webp";
 import EventTwo from "@/assets/pictures/events2.webp";
 import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 
 export default function EventsAndBrandsSection() {
   return (
     <section className="py-12">
       <div className="container mx-auto gap-8 max-w-screen-2xl px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-          Events & Brands
-        </h2>
         <div className="flex flex-col md:flex-row items-start justify-between">
           <Carousel
             opts={{
@@ -28,6 +26,7 @@ export default function EventsAndBrandsSection() {
               Autoplay({
                 delay: 5000,
               }),
+              Fade(),
             ]}
             className="w-full md:w-1/2 mb-8 md:mb-0"
           >
@@ -53,6 +52,9 @@ export default function EventsAndBrandsSection() {
             </CarouselContent>
           </Carousel>
           <div className="w-full md:w-1/2 md:pl-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
+              Events & Brands
+            </h2>
             <p className="text-lg mb-6">
               FEMMECRAFT is dedicated to creating events that connect BIPOC
               women in tech and crafts. We&apos;ve partnered with innovative
@@ -62,9 +64,7 @@ export default function EventsAndBrandsSection() {
               community.
             </p>
             <Link href="/events" passHref>
-              <Button variant="outline">
-                Learn More About Our Events & Brand Partnerships
-              </Button>
+              <Button variant="outline">Schau dir unsere Events an</Button>
             </Link>
           </div>
         </div>
