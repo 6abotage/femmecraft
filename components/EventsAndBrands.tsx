@@ -84,9 +84,9 @@ export default function EventsAndBrandsSection() {
         </div>
       </div>
       <InfiniteSlider
-        gap={16}
-        duration={30}
-        durationOnHover={100}
+        gap={32}
+        duration={90}
+        durationOnHover={180}
         className="py-12"
         direction="horizontal"
         reverse
