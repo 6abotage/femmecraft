@@ -99,6 +99,7 @@ export function InteractiveInvertedCurvedLine({
         top: 0,
         left: 0,
         pointerEvents: "none",
+        zIndex: 1000,
       }}
     >
       <path
