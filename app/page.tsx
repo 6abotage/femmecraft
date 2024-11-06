@@ -1,7 +1,6 @@
 "use client";
 
 import LatestEpisodePlayer from "./components/LatestEpisodePlayer";
-import { InteractiveInvertedCurvedLine } from "./components/InteractiveCurvedLine";
 import { InView } from "@/components/ui/inView";
 import HeroSection from "@/components/HeroSection";
 import EventsAndBrandsSection from "@/components/EventsAndBrands";
@@ -31,8 +30,6 @@ export default function Home() {
       <InView>
         <TeamSection />
       </InView>
-
-      <InteractiveInvertedCurvedLine className="hidden md:block" />
     </div>
   );
 }
