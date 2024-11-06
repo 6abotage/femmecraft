@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import team2 from "./team2.webp";
 
-const TITLE = "Our Team";
+const TITLE = "Unser Team";
 const DESCRIPTION =
   "FEMME CRAFT ist ein inspirierender Podcast und eine Networking-Plattform, die von Sehriban Cirik gegründet wurde und darauf abzielt, Frauen und Menschen of Color zusammenzubringen.";
 
