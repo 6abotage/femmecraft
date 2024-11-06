@@ -38,10 +38,10 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex space-x-6">
-            {["About", "Player", "Guests", "Events", "Team"].map((item) => (
+            {["Home", "About", "Player", "Events", "Team"].map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase()}`}
+                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 className="hover:text-neonGreen transition-colors"
               >
                 {item}
@@ -96,10 +96,10 @@ export default function Header() {
           preset="flip"
           key={`mobile-menu-${isMobileMenuOpen}`}
         >
-          {["About", "Player", "Guests", "Events", "Team"].map((item) => (
+          {["Home", "About", "Player", "Events", "Team"].map((item) => (
             <Link
               key={item}
-              href={`/${item.toLowerCase()}`}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               className="text-xl sm:text-2xl uppercase hover:text-neonGreen transition-colors"
               onClick={toggleMobileMenu}
             >
