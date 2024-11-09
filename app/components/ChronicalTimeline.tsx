@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { Timeline } from "@/components/ui/timeline";
 import Event1 from "@/assets/pictures/events.webp";
 import Event2 from "@/assets/pictures/events2.webp";
 import Team from "@/assets/pictures/team.webp";
@@ -53,94 +52,29 @@ const timelineEvents = [
     image: Team,
   },
 ];
-interface TimelineEventProps {
-  event: {
-    year: number;
-    title: string;
-    description: string[];
-    image: StaticImageData;
-  };
-  index: number;
-}
 
-const TimelineEvent = ({ event, index }: TimelineEventProps) => {
-  // Determine margin classes based on index for desktop screens
-  const imageMarginClass =
-    index % 2 === 1 ? "md:mr-8 md:pl-4" : "md:ml-8 md:pr-4";
-
-  return (
-    <motion.div
-      className={`flex flex-col md:flex-row items-start justify-between mb-24 ${
-        index % 2 === 0 ? "md:flex-row-reverse" : ""
-      }`}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div
-        className={`md:w-1/2 mb-8 md:mb-0 relative z-10 ${imageMarginClass}`}
-      >
+export default function ChronologicalTimeline() {
+  const mappedData = timelineEvents.map((event) => ({
+    title: `${event.year}: ${event.title}`,
+    content: (
+      <div className="flex flex-col items-start justify-between">
         <Image
           src={event.image}
           alt={event.title}
           width={500}
           height={400}
-          className="rounded-lg shadow-lg w-full h-auto object-cover"
+          className="rounded-lg shadow-lg w-3/4 h-auto object-cover"
         />
+        <div className="md:w-3/4  py-10 relative z-10 mr-auto">
+          <ul className="text-gray-600 leading-relaxed list-none space-y-2">
+            {event.description.map((point, idx) => (
+              <li key={idx} dangerouslySetInnerHTML={{ __html: point }} />
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="md:w-1/2 md:px-8 relative z-10">
-        <h3 className="text-3xl font-bold mb-2 text-neonGreen">{event.year}</h3>
-        <h4 className="text-xl font-semibold mb-4">{event.title}</h4>
-        <ul className="text-gray-600 leading-relaxed list-disc pl-5 space-y-2">
-          {event.description.map((point, idx) => (
-            <li key={idx} dangerouslySetInnerHTML={{ __html: point }} />
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-};
+    ),
+  }));
 
-export default function ChronologicalTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Use useScroll in the same component as the ref
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"], // Adjusted offset values
-  });
-
-  // Map scrollYProgress from [0, 1] to [0.15, 1]
-  const scaleYRange = useTransform(scrollYProgress, [0, 1], [0.15, 1]);
-
-  // Apply spring animation to scaleYRange
-  const scaleY = useSpring(scaleYRange, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  return (
-    <div className="container mx-auto px-4 py-16 relative" ref={containerRef}>
-      <h2 className="text-4xl font-bold text-center mb-16">Unsere Reise</h2>
-      <div className="relative overflow-hidden">
-        {/* Gray background line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-200 z-0 top-0 bottom-0"></div>
-
-        {/* Animated neonGreen line with spring animation */}
-        <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-neonGreen z-10 origin-top top-0"
-          style={{
-            scaleY,
-            height: "100%",
-          }}
-        />
-
-        {timelineEvents.map((event, index) => (
-          <TimelineEvent key={event.year} event={event} index={index} />
-        ))}
-      </div>
-    </div>
-  );
+  return <Timeline data={mappedData} />;
 }
